@@ -49,6 +49,14 @@ const initMap = async () => {
         pixelRatio: window.devicePixelRatio,
       });
     });
+
+    // ✅ Agregamos el ícono personalizado de carrito
+    map.loadImage('/assets/icons/car.png', (error, image) => {
+      if (error) throw error;
+      if (!map.hasImage('car-icon')) {
+        map.addImage('car-icon', image);
+      }
+    });
   }
 };
 
@@ -76,7 +84,6 @@ map.addControl(switcher);
 
 const MapView = ({ children }) => {
   const containerEl = useRef(null);
-
   const [mapReady, setMapReady] = useState(false);
 
   const mapStyles = useMapStyles();

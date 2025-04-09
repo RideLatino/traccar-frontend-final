@@ -69,14 +69,14 @@ const MapMarkers = ({ markers, showTitles }) => {
   useEffect(() => {
     map.getSource(id)?.setData({
       type: 'FeatureCollection',
-      features: markers.map(({ latitude, longitude, image, title }) => ({
+      features: markers.map(({ latitude, longitude, title }) => ({
         type: 'Feature',
         geometry: {
           type: 'Point',
           coordinates: [longitude, latitude],
         },
         properties: {
-          image: image || 'default-neutral',
+          image: 'car-icon',
           title: title || '',
         },
       })),
